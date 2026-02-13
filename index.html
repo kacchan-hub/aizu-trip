@@ -426,12 +426,13 @@
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
     }
-    .hotel-card.recommended {
+    .hotel-card.confirmed {
       border: 2px solid var(--color-primary);
       position: relative;
+      background: linear-gradient(135deg, #f0f7ef, #fff);
     }
-    .hotel-card.recommended::after {
-      content: 'おすすめ';
+    .hotel-card.confirmed::after {
+      content: '予約確定';
       position: absolute;
       top: -10px;
       right: 16px;
@@ -441,6 +442,17 @@
       border-radius: 50px;
       font-size: 0.7rem;
       font-weight: 700;
+    }
+    .confirmed-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-top: 12px;
+    }
+    .confirmed-price span {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--color-text-muted);
     }
     .hotel-rank {
       display: inline-block;
@@ -567,7 +579,7 @@
       <a href="#lunch-day1"><span class="nav-icon">🍽️</span> 昼食(福島)</a>
       <a href="#walk"><span class="nav-icon">🚶</span> 散策コース</a>
       <a href="#lunch-day2"><span class="nav-icon">🍽️</span> 昼食(会津)</a>
-      <a href="#hotel"><span class="nav-icon">🏨</span> 宿泊</a>
+      <a href="#hotel"><span class="nav-icon">🏨</span> 宿泊(確定)</a>
     </div>
   </nav>
 
@@ -590,7 +602,7 @@
         </div>
         <div class="day-info">
           <h3>ゴッホ展 × 東山温泉</h3>
-          <p>朝東京を出発し、福島県立美術館でゴッホ展を鑑賞。午後は会津若松へ移動し東山温泉でくつろぎます。</p>
+          <p>朝東京を出発し、福島県立美術館でゴッホ展を鑑賞。午後は会津若松へ移動し「庄助の宿 瀧の湯」でくつろぎます。</p>
         </div>
       </div>
 
@@ -645,20 +657,20 @@
         </div>
         <div class="timeline-item fade-in">
           <div class="timeline-time">14:50 → 15:15</div>
-          <div class="timeline-title">会津若松駅 → 東山温泉</div>
+          <div class="timeline-title">会津若松駅 → 東山温泉「庄助の宿 瀧の湯」</div>
           <div class="timeline-note">まちなか周遊バス「ハイカラさん」で宿へ移動、チェックイン</div>
           <span class="timeline-tag tag-transport">🚌 バス</span>
         </div>
         <div class="timeline-item highlight fade-in">
           <div class="timeline-time">16:00〜</div>
-          <div class="timeline-title">♨️ 東山温泉でくつろぐ</div>
-          <div class="timeline-note">温泉で旅の疲れを癒やします。</div>
+          <div class="timeline-title">♨️ 庄助の宿 瀧の湯でくつろぐ</div>
+          <div class="timeline-note">滝を望む絶景露天風呂で旅の疲れを癒やします。</div>
           <span class="timeline-tag tag-hotel">🛁 温泉</span>
         </div>
         <div class="timeline-item highlight fade-in">
           <div class="timeline-time">18:30</div>
           <div class="timeline-title">🍶 夕食</div>
-          <div class="timeline-note">宿にて会津の郷土料理を堪能。</div>
+          <div class="timeline-note">庄助の宿 瀧の湯にて会津の郷土料理を堪能。</div>
           <span class="timeline-tag tag-food">🍽️ 食事</span>
         </div>
       </div>
@@ -690,7 +702,7 @@
       <div class="timeline">
         <div class="timeline-item fade-in">
           <div class="timeline-time">09:00</div>
-          <div class="timeline-title">宿をチェックアウト</div>
+          <div class="timeline-title">庄助の宿 瀧の湯をチェックアウト</div>
           <div class="timeline-note">荷物は宿に預けるか、駅のコインロッカーへ。</div>
           <span class="timeline-tag tag-hotel">🏨 宿泊</span>
         </div>
@@ -902,66 +914,29 @@
       <div class="section-header fade-in">
         <div class="section-icon">🏨</div>
         <div>
-          <h2>東山温泉 おすすめの宿</h2>
-          <div class="section-sub">ご予算や過ごし方に合わせてお選びください</div>
+          <h2>宿泊先（予約確定）</h2>
+          <div class="section-sub">東山温泉 — 庄助の宿 瀧の湯</div>
         </div>
       </div>
 
       <div class="hotel-cards">
-        <!-- Premium -->
-        <div class="hotel-card fade-in">
-          <span class="hotel-rank rank-premium">✦ 特選・最高級</span>
-          <div class="hotel-name">会津東山温泉 向瀧</div>
-          <div class="hotel-desc">国の登録有形文化財。全室部屋食、源泉かけ流し。歴史と趣を重視するなら。</div>
-          <div class="hotel-price">💰 ¥56,000〜¥70,000 <span style="color:var(--color-text-muted); font-weight:400">（1泊2食 2名合計）</span></div>
-        </div>
-        <div class="hotel-card fade-in">
-          <span class="hotel-rank rank-premium">✦ 特選・最高級</span>
-          <div class="hotel-name">鶴我 東山総本山</div>
-          <div class="hotel-desc">1日1組限定の究極のプライベート空間。最高級の会津牛会席。</div>
-          <div class="hotel-price">💰 ¥80,000〜 <span style="color:var(--color-text-muted); font-weight:400">（1泊2食 2名合計）</span></div>
-        </div>
-        <!-- High -->
-        <div class="hotel-card fade-in">
-          <span class="hotel-rank rank-high">★ 上級</span>
+        <div class="hotel-card confirmed fade-in">
+          <span class="hotel-rank rank-high">★ 予約確定</span>
           <div class="hotel-name">庄助の宿 瀧の湯</div>
-          <div class="hotel-desc">滝を望む絶景露天風呂が自慢。文人墨客も愛した歴史ある宿。</div>
-          <div class="hotel-price">💰 ¥40,000〜¥60,000 <span style="color:var(--color-text-muted); font-weight:400">（1泊2食 2名合計）</span></div>
-        </div>
-        <div class="hotel-card fade-in">
-          <span class="hotel-rank rank-high">★ 上級</span>
-          <div class="hotel-name">今昔亭</div>
-          <div class="hotel-desc">全25室の静かな隠れ宿。個室食事処で創作会席料理を堪能。</div>
-          <div class="hotel-price">💰 ¥36,000〜¥55,000 <span style="color:var(--color-text-muted); font-weight:400">（1泊2食 2名合計）</span></div>
-        </div>
-        <!-- Standard - Recommended -->
-        <div class="hotel-card recommended fade-in">
-          <span class="hotel-rank rank-standard">● スタンダード</span>
-          <div class="hotel-name">くつろぎ宿 新滝</div>
-          <div class="hotel-desc">当初提案の宿。渓流沿いの露天風呂と自家源泉が人気。コストパフォーマンスが高い。</div>
-          <div class="hotel-price">💰 ¥28,000〜¥40,000 <span style="color:var(--color-text-muted); font-weight:400">（1泊2食 2名合計）</span></div>
-        </div>
-        <div class="hotel-card fade-in">
-          <span class="hotel-rank rank-standard">● スタンダード</span>
-          <div class="hotel-name">御宿 東鳳</div>
-          <div class="hotel-desc">展望露天風呂からの眺めが素晴らしい大型ホテル。ビュッフェが人気。</div>
-          <div class="hotel-price">💰 ¥25,000〜¥45,000 <span style="color:var(--color-text-muted); font-weight:400">（1泊2食 2名合計）</span></div>
-        </div>
-        <!-- Budget -->
-        <div class="hotel-card fade-in">
-          <span class="hotel-rank rank-budget">○ リーズナブル</span>
-          <div class="hotel-name">月のあかり</div>
-          <div class="hotel-desc">セルフサービスで気軽に滞在できる温泉宿。料金を抑えたい場合に。</div>
-          <div class="hotel-price">💰 ¥16,000〜¥25,000 <span style="color:var(--color-text-muted); font-weight:400">（1泊2食 2名合計）</span></div>
+          <div class="hotel-desc">滝を望む絶景露天風呂が自慢。文人墨客も愛した歴史ある宿。会津の郷土料理とともに、贅沢な一夜をお楽しみください。</div>
+          <div class="confirmed-price">¥33,440 <span>（1泊2食付き・2名合計）</span></div>
         </div>
       </div>
 
       <!-- Budget Summary -->
       <div class="budget-box fade-in">
-        <h4>💰 予算の目安</h4>
+        <h4>💰 旅行費用まとめ</h4>
         <p>
-          「くつろぎ宿 新滝」（スタンダードランク）に宿泊した場合、交通費・宿泊費・食費・観光費を含めた総予算は2人で<span class="budget-highlight">約10万5,000円</span>となる見込みです。<br>
-          「向瀧」（特選ランク）にアップグレードした場合、総予算は<span class="budget-highlight">約12万5,000円</span>となり、ご提示の12万円を少し超える可能性があります。
+          <strong>宿泊費（確定）:</strong> 庄助の宿 瀧の湯 — 2名 <span class="budget-highlight">¥33,440</span><br>
+          <strong>交通費（目安）:</strong> 東京⇔会津若松 往復（新幹線＋在来線）— 2名 約¥40,000〜¥44,000<br>
+          <strong>食事・観光費（目安）:</strong> 昼食2回＋観光入場料など — 2名 約¥6,000〜¥10,000<br>
+          <br>
+          旅行総額の目安は2人で<span class="budget-highlight">約8万〜8万7,000円</span>程度の見込みです。
         </p>
       </div>
     </section>
