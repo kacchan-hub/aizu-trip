@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会津若松 1泊2日の旅</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS Variables ===== */
+    :root {
+      --color-primary: #2d5a27;
+      --color-primary-light: #4a8c3f;
+      --color-accent: #c0392b;
+      --color-accent-warm: #d4a574;
+      --color-bg: #faf8f5;
+      --color-bg-card: #ffffff;
+      --color-bg-hero: linear-gradient(135deg, #1a3a2a 0%, #2d5a27 40%, #4a7c3f 100%);
+      --color-text: #2c2c2c;
+      --color-text-light: #666;
+      --color-text-muted: #999;
+      --color-border: #e8e4df;
+      --color-timeline: #d4a574;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+      --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --font-sans: 'Noto Sans JP', sans-serif;
+      --font-serif: 'Noto Serif JP', serif;
+    }
+
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.8;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      background: var(--color-bg-hero);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 6px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .hero-sub {
+      font-size: 1rem;
+      opacity: 0.85;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    .hero-dates {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .hero-date-chip {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .hero-date-chip span { font-weight: 300; opacity: 0.8; font-size: 0.8rem; }
+
+    /* ===== Navigation ===== */
+    .nav {
+      background: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      gap: 0;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 18px;
+      color: var(--color-text-light);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .nav a:hover, .nav a.active {
+      color: var(--color-primary);
+      border-bottom-color: var(--color-primary);
+    }
+    .nav a .nav-icon { font-size: 1.1rem; }
+
+    /* ===== Main Container ===== */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ===== Section ===== */
+    .section {
+      padding: 48px 0;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .section-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .section-header .section-sub {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      font-weight: 400;
+    }
+    .section-divider {
+      border: none;
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    /* ===== Day Header ===== */
+    .day-header {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 20px 28px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .day-number {
+      background: var(--color-primary);
+      color: #fff;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .day-number .day-label { font-size: 0.65rem; letter-spacing: 0.1em; line-height: 1; }
+    .day-number .day-num { font-size: 1.4rem; line-height: 1; }
+    .day-info h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+    .day-info p {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+    }
+
+    /* ===== Timeline ===== */
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--color-timeline), var(--color-primary-light));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 6px;
+      padding: 14px 20px;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .timeline-item:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-md);
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 20px;
+      width: 12px;
+      height: 12px;
+      background: var(--color-bg);
+      border: 3px solid var(--color-timeline);
+      border-radius: 50%;
+    }
+    .timeline-item.highlight {
+      border-left: 3px solid var(--color-accent-warm);
+      background: linear-gradient(135deg, #fffcf8, #fff);
+    }
+    .timeline-item.highlight::before {
+      background: var(--color-accent-warm);
+      border-color: var(--color-accent-warm);
+    }
+    .timeline-time {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: 0.02em;
+    }
+    .timeline-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-top: 2px;
+      color: var(--color-text);
+    }
+    .timeline-note {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+      line-height: 1.6;
+    }
+    .timeline-tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      margin-top: 6px;
+    }
+    .tag-transport { background: #e8f4fd; color: #1976d2; }
+    .tag-sightseeing { background: #fce4ec; color: #c62828; }
+    .tag-food { background: #fff3e0; color: #e65100; }
+    .tag-hotel { background: #e8f5e9; color: #2e7d32; }
+
+    /* ===== Restaurant Cards ===== */
+    .restaurant-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .restaurant-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .restaurant-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .restaurant-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .restaurant-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+    .restaurant-genre {
+      display: inline-block;
+      background: #f5f0eb;
+      color: var(--color-accent-warm);
+      padding: 3px 12px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .restaurant-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+    }
+    .restaurant-budget {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    /* ===== Walking Course ===== */
+    .walk-steps {
+      position: relative;
+      padding-left: 28px;
+    }
+    .walk-steps::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 12px;
+      bottom: 12px;
+      width: 2px;
+      background: var(--color-border);
+      border-radius: 2px;
+    }
+    .walk-step {
+      position: relative;
+      margin-bottom: 20px;
+      padding: 16px 20px;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+    }
+    .walk-step::before {
+      content: attr(data-step);
+      position: absolute;
+      left: -22px;
+      top: 16px;
+      width: 24px;
+      height: 24px;
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+    .walk-step-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--color-primary);
+      margin-bottom: 4px;
+    }
+    .walk-step-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+    }
+
+    /* ===== Hotel Table ===== */
+    .hotel-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .hotel-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .hotel-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .hotel-card.recommended {
+      border: 2px solid var(--color-primary);
+      position: relative;
+    }
+    .hotel-card.recommended::after {
+      content: 'おすすめ';
+      position: absolute;
+      top: -10px;
+      right: 16px;
+      background: var(--color-primary);
+      color: #fff;
+      padding: 2px 14px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+    .hotel-rank {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .rank-premium { background: #fff8e1; color: #f57f17; }
+    .rank-high { background: #fce4ec; color: #c62828; }
+    .rank-standard { background: #e8f5e9; color: #2e7d32; }
+    .rank-budget { background: #e3f2fd; color: #1565c0; }
+    .hotel-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 6px;
+    }
+    .hotel-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+    }
+    .hotel-price {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    /* ===== Budget Summary ===== */
+    .budget-box {
+      background: linear-gradient(135deg, #f8f9fa, #fff);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .budget-box h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .budget-box p {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      line-height: 1.8;
+    }
+    .budget-box .budget-highlight {
+      font-weight: 700;
+      color: var(--color-accent);
+      font-size: 1.1rem;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--color-text-muted);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--color-border);
+      margin-top: 20px;
+    }
+    .footer p { line-height: 1.8; }
+
+    /* ===== Scroll Animations ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 640px) {
+      .hero { padding: 60px 16px 48px; }
+      .hero h1 { font-size: 1.7rem; }
+      .hero-dates { flex-direction: column; align-items: center; }
+      .nav a { padding: 12px 14px; font-size: 0.8rem; }
+      .section { padding: 32px 0; }
+      .section-header h2 { font-size: 1.2rem; }
+      .day-header { padding: 16px 20px; }
+      .timeline { padding-left: 28px; }
+      .container { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">🏯 福島県 会津若松</div>
+      <h1>会津若松 1泊2日の旅</h1>
+      <p class="hero-sub">ゴッホ展と城下町散策、東山温泉を満喫する<br>王道ゆったりコース</p>
+      <div class="hero-dates">
+        <div class="hero-date-chip">
+          <span>DAY 1</span>&nbsp; 3月13日（金）
+        </div>
+        <div class="hero-date-chip">
+          <span>DAY 2</span>&nbsp; 3月14日（土）
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#day1"><span class="nav-icon">📅</span> 1日目</a>
+      <a href="#day2"><span class="nav-icon">📅</span> 2日目</a>
+      <a href="#lunch-day1"><span class="nav-icon">🍽️</span> 昼食(福島)</a>
+      <a href="#walk"><span class="nav-icon">🚶</span> 散策コース</a>
+      <a href="#lunch-day2"><span class="nav-icon">🍽️</span> 昼食(会津)</a>
+      <a href="#hotel"><span class="nav-icon">🏨</span> 宿泊</a>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- ===== DAY 1 ===== -->
+    <section id="day1" class="section">
+      <div class="section-header fade-in">
+        <div class="section-icon">1</div>
+        <div>
+          <h2>1日目の行程</h2>
+          <div class="section-sub">3月13日（金）— 東京 → 福島 → 会津若松</div>
+        </div>
+      </div>
+
+      <div class="day-header fade-in">
+        <div class="day-number">
+          <span class="day-label">DAY</span>
+          <span class="day-num">1</span>
+        </div>
+        <div class="day-info">
+          <h3>ゴッホ展 × 東山温泉</h3>
+          <p>朝東京を出発し、福島県立美術館でゴッホ展を鑑賞。午後は会津若松へ移動し東山温泉でくつろぎます。</p>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item fade-in">
+          <div class="timeline-time">07:12</div>
+          <div class="timeline-title">東京駅 出発</div>
+          <div class="timeline-note">東北新幹線 やまびこ123号 仙台行</div>
+          <span class="timeline-tag tag-transport">🚄 新幹線</span>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-time">08:45</div>
+          <div class="timeline-title">福島駅 到着</div>
+          <div class="timeline-note">乗り換え</div>
+          <span class="timeline-tag tag-transport">🔄 乗換</span>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-time">09:00 → 09:04</div>
+          <div class="timeline-title">福島駅東口 → 美術館図書館前駅</div>
+          <div class="timeline-note">福島交通飯坂線（約4分）→ 徒歩2分で美術館へ</div>
+          <span class="timeline-tag tag-transport">🚃 電車</span>
+        </div>
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-time">09:30 - 11:00</div>
+          <div class="timeline-title">🎨 ゴッホ展 鑑賞</div>
+          <div class="timeline-note">福島県立美術館にて約1時間半、じっくりと作品を鑑賞します。</div>
+          <span class="timeline-tag tag-sightseeing">🖼️ 鑑賞</span>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-time">11:15</div>
+          <div class="timeline-title">福島駅へ移動</div>
+          <div class="timeline-note">飯坂線・徒歩</div>
+          <span class="timeline-tag tag-transport">🚃 電車</span>
+        </div>
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-time">11:30 - 12:20</div>
+          <div class="timeline-title">🍴 昼食（福島駅周辺）</div>
+          <div class="timeline-note">おすすめリストは下のセクションをご覧ください。</div>
+          <span class="timeline-tag tag-food">🍽️ 食事</span>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-time">12:30 → 12:45</div>
+          <div class="timeline-title">福島駅 → 郡山駅</div>
+          <div class="timeline-note">東北新幹線（自由席）</div>
+          <span class="timeline-tag tag-transport">🚄 新幹線</span>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-time">13:15 → 14:31</div>
+          <div class="timeline-title">郡山駅 → 会津若松駅</div>
+          <div class="timeline-note">JR磐越西線 会津若松行</div>
+          <span class="timeline-tag tag-transport">🚃 電車</span>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-time">14:50 → 15:15</div>
+          <div class="timeline-title">会津若松駅 → 東山温泉</div>
+          <div class="timeline-note">まちなか周遊バス「ハイカラさん」で宿へ移動、チェックイン</div>
+          <span class="timeline-tag tag-transport">🚌 バス</span>
+        </div>
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-time">16:00〜</div>
+          <div class="timeline-title">♨️ 東山温泉でくつろぐ</div>
+          <div class="timeline-note">温泉で旅の疲れを癒やします。</div>
+          <span class="timeline-tag tag-hotel">🛁 温泉</span>
+        </div>
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-time">18:30</div>
+          <div class="timeline-title">🍶 夕食</div>
+          <div class="timeline-note">宿にて会津の郷土料理を堪能。</div>
+          <span class="timeline-tag tag-food">🍽️ 食事</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ===== DAY 2 ===== -->
+    <section id="day2" class="section">
+      <div class="section-header fade-in">
+        <div class="section-icon">2</div>
+        <div>
+          <h2>2日目の行程</h2>
+          <div class="section-sub">3月14日（土）— 会津若松観光 → 東京</div>
+        </div>
+      </div>
+
+      <div class="day-header fade-in">
+        <div class="day-number">
+          <span class="day-label">DAY</span>
+          <span class="day-num">2</span>
+        </div>
+        <div class="day-info">
+          <h3>鶴ヶ城 × 城下町散策 × 飯盛山</h3>
+          <p>会津若松の名所を巡り、七日町通りでレトロな街並みを楽しんでから帰路へ。</p>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item fade-in">
+          <div class="timeline-time">09:00</div>
+          <div class="timeline-title">宿をチェックアウト</div>
+          <div class="timeline-note">荷物は宿に預けるか、駅のコインロッカーへ。</div>
+          <span class="timeline-tag tag-hotel">🏨 宿泊</span>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-time">09:15 → 09:30</div>
+          <div class="timeline-title">東山温泉 → 鶴ヶ城入口</div>
+          <div class="timeline-note">まちなか周遊バス「ハイカラさん」</div>
+          <span class="timeline-tag tag-transport">🚌 バス</span>
+        </div>
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-time">09:30 - 11:00</div>
+          <div class="timeline-title">🏯 鶴ヶ城 天守閣見学</div>
+          <div class="timeline-note">会津のシンボル、鶴ヶ城の天守閣を見学します。</div>
+          <span class="timeline-tag tag-sightseeing">🏯 観光</span>
+        </div>
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-time">11:00 - 12:30</div>
+          <div class="timeline-title">🚶 武家屋敷の面影を残す街並み散策</div>
+          <div class="timeline-note">鶴ヶ城北口から甲賀町口門跡を経て、七日町通りまで散策。</div>
+          <span class="timeline-tag tag-sightseeing">🚶 散策</span>
+        </div>
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-time">12:30 - 13:30</div>
+          <div class="timeline-title">🍴 昼食（七日町・市街地）</div>
+          <div class="timeline-note">おすすめリストは下のセクションをご覧ください。</div>
+          <span class="timeline-tag tag-food">🍽️ 食事</span>
+        </div>
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-time">13:30 - 15:00</div>
+          <div class="timeline-title">🛍️ 七日町通り・野口英世青春通り散策</div>
+          <div class="timeline-note">レトロな街並みでショッピングやカフェ休憩。</div>
+          <span class="timeline-tag tag-sightseeing">🛍️ ショッピング</span>
+        </div>
+        <div class="timeline-item highlight fade-in">
+          <div class="timeline-time">15:15 - 16:30</div>
+          <div class="timeline-title">⛩️ 飯盛山（さざえ堂・白虎隊士の墓）</div>
+          <div class="timeline-note">幕末の歴史を感じる飯盛山を散策。</div>
+          <span class="timeline-tag tag-sightseeing">⛩️ 観光</span>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-time">16:30</div>
+          <div class="timeline-title">会津若松駅へ移動</div>
+          <div class="timeline-note">バスで駅へ。</div>
+          <span class="timeline-tag tag-transport">🚌 バス</span>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-time">17:09 → 18:25</div>
+          <div class="timeline-title">会津若松駅 → 郡山駅</div>
+          <div class="timeline-note">JR磐越西線 郡山行</div>
+          <span class="timeline-tag tag-transport">🚃 電車</span>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-time">18:56 → 20:16</div>
+          <div class="timeline-title">郡山駅 → 東京駅</div>
+          <div class="timeline-note">東北新幹線 やまびこ60号 東京行</div>
+          <span class="timeline-tag tag-transport">🚄 新幹線</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ===== LUNCH DAY 1 ===== -->
+    <section id="lunch-day1" class="section">
+      <div class="section-header fade-in">
+        <div class="section-icon">🍽</div>
+        <div>
+          <h2>昼食のおすすめ — 福島駅周辺</h2>
+          <div class="section-sub">1日目 (3/13) ゴッホ展鑑賞後のランチ</div>
+        </div>
+      </div>
+
+      <div class="restaurant-grid">
+        <div class="restaurant-card fade-in">
+          <div class="restaurant-header">
+            <div class="restaurant-name">餃子 照井 東口店</div>
+            <span class="restaurant-genre">円盤餃子</span>
+          </div>
+          <div class="restaurant-desc">福島名物「円盤餃子」の老舗。駅構内でアクセス抜群。</div>
+          <div class="restaurant-budget">💰 ¥1,000〜¥1,500</div>
+        </div>
+        <div class="restaurant-card fade-in">
+          <div class="restaurant-header">
+            <div class="restaurant-name">三立十割 蕎麦人</div>
+            <span class="restaurant-genre">十割蕎麦</span>
+          </div>
+          <div class="restaurant-desc">香り高い本格的な手打ち十割蕎麦が味わえる人気店。</div>
+          <div class="restaurant-budget">💰 ¥1,000〜¥2,000</div>
+        </div>
+        <div class="restaurant-card fade-in">
+          <div class="restaurant-header">
+            <div class="restaurant-name">てんぷら しおや</div>
+            <span class="restaurant-genre">天ぷら</span>
+          </div>
+          <div class="restaurant-desc">目の前で揚げてくれる本格的な天ぷらの名店。ランチは比較的リーズナブル。</div>
+          <div class="restaurant-budget">💰 ¥1,500〜¥2,000</div>
+        </div>
+        <div class="restaurant-card fade-in">
+          <div class="restaurant-header">
+            <div class="restaurant-name">うな萬</div>
+            <span class="restaurant-genre">うなぎ</span>
+          </div>
+          <div class="restaurant-desc">ふっくらと焼き上げたうなぎが自慢の老舗。少し贅沢なランチに。</div>
+          <div class="restaurant-budget">💰 ¥2,500〜¥4,000</div>
+        </div>
+        <div class="restaurant-card fade-in">
+          <div class="restaurant-header">
+            <div class="restaurant-name">丸信ラーメン 駅前店</div>
+            <span class="restaurant-genre">ラーメン</span>
+          </div>
+          <div class="restaurant-desc">地元で長年愛される、あっさりとした醤油ラーメンが人気の老舗。</div>
+          <div class="restaurant-budget">💰 ¥800〜¥1,200</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ===== WALKING COURSE ===== -->
+    <section id="walk" class="section">
+      <div class="section-header fade-in">
+        <div class="section-icon">🚶</div>
+        <div>
+          <h2>武家屋敷の面影を残す街並み散策</h2>
+          <div class="section-sub">2日目 (3/14) 約1〜1.5時間の散策コース</div>
+        </div>
+      </div>
+
+      <div class="walk-steps">
+        <div class="walk-step fade-in" data-step="1">
+          <div class="walk-step-title">鶴ヶ城・北口からスタート</div>
+          <div class="walk-step-desc">鶴ヶ城の天守閣見学を終えたら、北口方面へ向かいます。</div>
+        </div>
+        <div class="walk-step fade-in" data-step="2">
+          <div class="walk-step-title">甲賀町口郭門跡を見学</div>
+          <div class="walk-step-desc">城下と武家地を分けた門の、唯一現存する石垣です。</div>
+        </div>
+        <div class="walk-step fade-in" data-step="3">
+          <div class="walk-step-title">追手町・馬場町周辺を散策</div>
+          <div class="walk-step-desc">かつて上級武士の屋敷が並んでいたエリアで、城下町の面影が色濃く残ります。</div>
+        </div>
+        <div class="walk-step fade-in" data-step="4">
+          <div class="walk-step-title">大町四ツ角 → 七日町通りへ</div>
+          <div class="walk-step-desc">明治〜昭和初期の蔵や洋館が並ぶレトロな通りで、カフェや漆器店、造り酒屋などが軒を連ねます。</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ===== LUNCH DAY 2 ===== -->
+    <section id="lunch-day2" class="section">
+      <div class="section-header fade-in">
+        <div class="section-icon">🍽</div>
+        <div>
+          <h2>昼食のおすすめ — 会津若松市内</h2>
+          <div class="section-sub">2日目 (3/14) 散策途中のランチ</div>
+        </div>
+      </div>
+
+      <div class="restaurant-grid">
+        <div class="restaurant-card fade-in">
+          <div class="restaurant-header">
+            <div class="restaurant-name">割烹・会津料理 田季野</div>
+            <span class="restaurant-genre">わっぱ飯</span>
+          </div>
+          <div class="restaurant-desc">趣ある建物でいただく元祖わっぱ飯。会津の郷土料理も堪能できます。</div>
+          <div class="restaurant-budget">💰 ¥1,500〜¥2,500</div>
+        </div>
+        <div class="restaurant-card fade-in">
+          <div class="restaurant-header">
+            <div class="restaurant-name">満田屋</div>
+            <span class="restaurant-genre">味噌田楽</span>
+          </div>
+          <div class="restaurant-desc">囲炉裏で焼くアツアツの味噌田楽が名物。こんにゃくや餅、にしんなど。</div>
+          <div class="restaurant-budget">💰 ¥1,000〜¥1,500</div>
+        </div>
+        <div class="restaurant-card fade-in">
+          <div class="restaurant-header">
+            <div class="restaurant-name">元祖煮込みソースカツ丼 なかじま</div>
+            <span class="restaurant-genre">ソースカツ丼</span>
+          </div>
+          <div class="restaurant-desc">ソースでカツを煮込んだ珍しい「煮込みソースカツ丼」が味わえます。</div>
+          <div class="restaurant-budget">💰 ¥1,000〜¥1,500</div>
+        </div>
+        <div class="restaurant-card fade-in">
+          <div class="restaurant-header">
+            <div class="restaurant-name">喜多方ラーメン専門店 喜鈴</div>
+            <span class="restaurant-genre">喜多方ラーメン</span>
+          </div>
+          <div class="restaurant-desc">会津若松市内で本格的な喜多方ラーメンが食べられる人気店。</div>
+          <div class="restaurant-budget">💰 ¥800〜¥1,200</div>
+        </div>
+        <div class="restaurant-card fade-in">
+          <div class="restaurant-header">
+            <div class="restaurant-name">鶴ヶ城会館 朱雀亭</div>
+            <span class="restaurant-genre">喜多方ラーメン</span>
+          </div>
+          <div class="restaurant-desc">鶴ヶ城のすぐそば。観光の合間に気軽に喜多方ラーメンを楽しめます。</div>
+          <div class="restaurant-budget">💰 ¥800〜¥1,200</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ===== HOTEL ===== -->
+    <section id="hotel" class="section">
+      <div class="section-header fade-in">
+        <div class="section-icon">🏨</div>
+        <div>
+          <h2>東山温泉 おすすめの宿</h2>
+          <div class="section-sub">ご予算や過ごし方に合わせてお選びください</div>
+        </div>
+      </div>
+
+      <div class="hotel-cards">
+        <!-- Premium -->
+        <div class="hotel-card fade-in">
+          <span class="hotel-rank rank-premium">✦ 特選・最高級</span>
+          <div class="hotel-name">会津東山温泉 向瀧</div>
+          <div class="hotel-desc">国の登録有形文化財。全室部屋食、源泉かけ流し。歴史と趣を重視するなら。</div>
+          <div class="hotel-price">💰 ¥56,000〜¥70,000 <span style="color:var(--color-text-muted); font-weight:400">（1泊2食 2名合計）</span></div>
+        </div>
+        <div class="hotel-card fade-in">
+          <span class="hotel-rank rank-premium">✦ 特選・最高級</span>
+          <div class="hotel-name">鶴我 東山総本山</div>
+          <div class="hotel-desc">1日1組限定の究極のプライベート空間。最高級の会津牛会席。</div>
+          <div class="hotel-price">💰 ¥80,000〜 <span style="color:var(--color-text-muted); font-weight:400">（1泊2食 2名合計）</span></div>
+        </div>
+        <!-- High -->
+        <div class="hotel-card fade-in">
+          <span class="hotel-rank rank-high">★ 上級</span>
+          <div class="hotel-name">庄助の宿 瀧の湯</div>
+          <div class="hotel-desc">滝を望む絶景露天風呂が自慢。文人墨客も愛した歴史ある宿。</div>
+          <div class="hotel-price">💰 ¥40,000〜¥60,000 <span style="color:var(--color-text-muted); font-weight:400">（1泊2食 2名合計）</span></div>
+        </div>
+        <div class="hotel-card fade-in">
+          <span class="hotel-rank rank-high">★ 上級</span>
+          <div class="hotel-name">今昔亭</div>
+          <div class="hotel-desc">全25室の静かな隠れ宿。個室食事処で創作会席料理を堪能。</div>
+          <div class="hotel-price">💰 ¥36,000〜¥55,000 <span style="color:var(--color-text-muted); font-weight:400">（1泊2食 2名合計）</span></div>
+        </div>
+        <!-- Standard - Recommended -->
+        <div class="hotel-card recommended fade-in">
+          <span class="hotel-rank rank-standard">● スタンダード</span>
+          <div class="hotel-name">くつろぎ宿 新滝</div>
+          <div class="hotel-desc">当初提案の宿。渓流沿いの露天風呂と自家源泉が人気。コストパフォーマンスが高い。</div>
+          <div class="hotel-price">💰 ¥28,000〜¥40,000 <span style="color:var(--color-text-muted); font-weight:400">（1泊2食 2名合計）</span></div>
+        </div>
+        <div class="hotel-card fade-in">
+          <span class="hotel-rank rank-standard">● スタンダード</span>
+          <div class="hotel-name">御宿 東鳳</div>
+          <div class="hotel-desc">展望露天風呂からの眺めが素晴らしい大型ホテル。ビュッフェが人気。</div>
+          <div class="hotel-price">💰 ¥25,000〜¥45,000 <span style="color:var(--color-text-muted); font-weight:400">（1泊2食 2名合計）</span></div>
+        </div>
+        <!-- Budget -->
+        <div class="hotel-card fade-in">
+          <span class="hotel-rank rank-budget">○ リーズナブル</span>
+          <div class="hotel-name">月のあかり</div>
+          <div class="hotel-desc">セルフサービスで気軽に滞在できる温泉宿。料金を抑えたい場合に。</div>
+          <div class="hotel-price">💰 ¥16,000〜¥25,000 <span style="color:var(--color-text-muted); font-weight:400">（1泊2食 2名合計）</span></div>
+        </div>
+      </div>
+
+      <!-- Budget Summary -->
+      <div class="budget-box fade-in">
+        <h4>💰 予算の目安</h4>
+        <p>
+          「くつろぎ宿 新滝」（スタンダードランク）に宿泊した場合、交通費・宿泊費・食費・観光費を含めた総予算は2人で<span class="budget-highlight">約10万5,000円</span>となる見込みです。<br>
+          「向瀧」（特選ランク）にアップグレードした場合、総予算は<span class="budget-highlight">約12万5,000円</span>となり、ご提示の12万円を少し超える可能性があります。
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>会津若松 1泊2日の旅 — 2025年3月13日〜14日</p>
+    <p style="margin-top: 4px; font-size: 0.75rem;">二人の旅の記録 ✈️</p>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Scroll animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Active nav highlight
+    const navLinks = document.querySelectorAll('.nav a');
+    const sections = document.querySelectorAll('section[id]');
+
+    function updateActiveNav() {
+      let current = '';
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 120) current = section.id;
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    }
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
+  </script>
+
+</body>
+</html>
